@@ -1,0 +1,14 @@
+spring.cloud.stream.bindings:
+  transactions:
+    destination: user-transactions
+    producer:
+      useNativeEncoding: true
+server:
+  port: 8080
+  servlet:
+    context-path: /appdemo
+spring.cloud.stream.kafka.binder.configuration:
+  key.serializer: org.apache.kafka.common.serialization.StringSerializer
+spring.cloud.stream.kafka.bindings.transactions.producer:
+  configuration:
+    value.serializer: org.apache.kafka.common.serialization.StringSerializer
